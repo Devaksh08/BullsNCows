@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulls & Cows</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+
+<div id="nameSection">
+    <h2>Enter Name</h2> 
+    <input id="nameInput" placeholder="Your Name">
+    <button onclick="setName()">Continue</button>
+</div>
+
+<div id="roomSection" style="display:none;">
+    <button onclick="createRoom()">Create Room</button><br><br>
+    <input id="roomInput" placeholder="Room ID">
+    <button onclick="joinRoom()">Join Room</button>
+</div>
+
+<div id="lobby" style="display:none;">
+    <h3>Room ID: <span id="roomId"></span></h3>
+    <h4>Players in Room:</h4>
+    <ul id="players"></ul>
+
+    <div id="waitingLoader" style="display:none;">
+        <h3>Waiting for opponent <span class="dots">...</span></h3>
+    </div>
+</div>
+
+<div id="secretSection" style="display:none;">
+    <h3>Enter Secret Code</h3>
+    <input id="secretInput" maxlength="4" placeholder="4 unique digits (1-9)">
+    <button onclick="submitSecret()">Submit</button>
+</div>
+
+<div id="gameSection" style="display:none;">
+    <h3 id="turnStatus"></h3>
+    <input id="guessInput" placeholder="Enter Guess" disabled>
+    <button id="guessBtn" onclick="submitGuess()" disabled>Submit Guess</button>
+
+    <h3>Your Guesses</h3>
+    <table border="1">
+        <thead>
+            <tr><th>Guess</th><th>Bulls</th><th>Cows</th></tr>
+        </thead>
+        <tbody id="myGuessTable"></tbody>
+    </table>
+
+    <h3>Opponent Guesses</h3>
+    <table border="1">
+        <thead>
+            <tr><th>Guess</th><th>Bulls</th><th>Cows</th></tr>
+        </thead>
+        <tbody id="opponentGuessTable"></tbody>
+    </table>
+</div>
+
+<div id="gameOverSection" style="display:none;">
+    <h2>🏁 Game Over</h2>
+    <h3 id="winnerText"></h3>
+
+    <p>Your Secret: <strong id="yourSecretText"></strong></p>
+    <p>Opponent Secret: <strong id="opponentSecretText"></strong></p>
+
+    <button onclick="exitGame()">❌ Exit Game</button>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

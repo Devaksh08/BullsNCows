@@ -1,0 +1,214 @@
+/* ======================
+   GLOBAL RESET & THEME
+====================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #e6dcd3;
+    color: #3f352c;
+    text-align: center;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+/* ======================
+   HEADINGS
+====================== */
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: #b4a79e;
+    margin-bottom: 8px;
+}
+
+/* ======================
+   INPUTS
+====================== */
+
+input {
+    padding: 12px;
+    margin: 6px;
+    border-radius: 8px;
+    border: 1px solid #b4a79e;
+    width: 220px;
+    background: #ffffff;
+    color: #3f352c;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #b4a79e;
+}
+
+input:focus {
+    border-color: #3f352c;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3f352c;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+button:disabled {
+    background: #b4a79e;
+    cursor: not-allowed;
+}
+
+/* ======================
+   CARD SECTIONS
+====================== */
+
+#roomSection,
+#lobby,
+#secretSection,
+#gameSection {
+    background: #ffffff;
+    border: 1px solid #b4a79e;
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px auto;
+    width: 65%;
+    animation: fadeIn 0.4s ease;
+}
+
+/* ======================
+   TABLES
+====================== */
+
+table {
+    margin: 15px auto;
+    border-collapse: collapse;
+    width: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #b4a79e;
+}
+
+th {
+    background: #e6dcd3;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #e6dcd3;
+}
+
+/* ======================
+   TURN STATUS
+====================== */
+
+#turnStatus {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.turn-glow {
+    color: #000000;
+    animation: pulse 1s infinite;
+}
+
+/* ======================
+   GAME OVER
+====================== */
+
+#gameOverSection {
+    background: #ffffff;
+    border: 2px solid #3f352c;
+    border-radius: 18px;
+    padding: 40px;
+    width: 60%;
+    margin: 60px auto;
+    animation: popIn 0.5s ease;
+}
+
+#gameOverSection h2 {
+    color: #3f352c;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+#gameOverSection button {
+    margin-top: 25px;
+    background: #000000;
+}
+
+/* ======================
+   LOADER
+====================== */
+
+#waitingLoader {
+    margin: 20px auto;
+    font-size: 18px;
+    color: #3f352c;
+}
+
+.dots::after {
+    content: '';
+    animation: dots 1s steps(5, end) infinite;
+}
+
+/* ======================
+   ANIMATIONS
+====================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.new-guess-row {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
